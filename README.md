@@ -4,6 +4,8 @@ HopperScripts
 
 The script stash for Hopper Disassembler.  Contribute a script today!
 
+Check out the [Hopper Scripting Reference](https://github.com/phracker/HopperScripts/wiki/Hopper-Script-Reference) if you're new to scripting for Hopper.
+
 Credits:
 
 * Demangle Strings.py was sourced from github user [NetsourceLabs](https://github.com/NetsourceLabs/HopperScripts).
