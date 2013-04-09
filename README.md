@@ -1,7 +1,5 @@
 HopperScripts
 ---
-![I'd say it's the most ballin' disassembler on the Mac.](http://hopperapp.com/Hopper_v3.png)
-
 The script stash for Hopper Disassembler.  Contribute a script today!
 
 Check out the [Hopper Scripting Reference](https://github.com/phracker/HopperScripts/wiki/Hopper-Script-Reference) if you're new to scripting for Hopper.
