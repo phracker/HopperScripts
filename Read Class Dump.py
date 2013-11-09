@@ -1,7 +1,7 @@
 # Reads output of class-dump to label procedures in Hopper
 # bradenthomas@me.com
 
-import os,subprocess
+import os,subprocess,re
 
 def get_original_file_name(doc_obj_addr):
    # just to be crazy, find the original path with ctypes
@@ -90,23 +90,25 @@ for parse_data in [class_dump_data, class_dump_z_data]:
          in_ivars = False
          in_interface = True
       elif in_ivars:
-         ivar_cmps = cl_line.strip().split(";")
+         ivar_cmps = cl_line.split(";")
          if len(ivar_cmps) == 2:
-            ivar_name_cmps = ivar_cmps[0].rsplit(None, 1)
-            if len(ivar_name_cmps) == 2:
-               ivar_type, ivar_name = ivar_name_cmps
-               if ivar_name.startswith("*"):
-                  ivar_name = ivar_name[1:]
-                  ivar_type += "*"
-               ivar_info_name = "(%s) %s.%s"%(ivar_type, interface_name, ivar_name)
+            ivar_definition = ivar_cmps[0].strip()
+            ivar_position = ivar_cmps[1].strip()
+            if ivar_definition and ivar_position:
+              m = re.match("(?P<type>^[a-zA-Z][a-zA-Z0-9]* ?\**)(?P<name> *[a-zA-Z][a-zA-Z0-9]*)", ivar_definition)
+              if m is not None:
+                ivar_type, ivar_name = m.group('type').strip(), m.group('name').strip()
+                if ivar_type and ivar_name:
+                  ivar_info_name = "(%s) %s.%s"%(ivar_type, interface_name, ivar_name)
 
-               ivar_addr_str = ivar_cmps[1].split()[-1]
-               if ivar_addr_str.startswith("0x"):
-                  ivar_addr = int(ivar_addr_str[2:], 16)
-                  ivar_seg = doc.getSegmentAtAddress(ivar_addr)
-                  if ivar_seg and ivar_seg.getName() == "__objc_ivar":
-                     doc.log("Ivar: %s at 0x%x (%s)"%(str(ivar_info_name), ivar_addr, ivar_seg.getName()))
-                     doc.setNameAtAddress(ivar_addr, ivar_info_name)
+                  ivar_addr_parts = ivar_position.split()
+                  ivar_addr_str = ivar_addr_parts[-1]
+                  if ivar_addr_str.startswith("0x"):
+                    ivar_addr = int(ivar_addr_str[2:], 16)
+                    ivar_seg = doc.getSegmentAtAddress(ivar_addr)
+                    if ivar_seg and ivar_seg.getName() == "__objc_ivar":
+                      doc.log("Ivar: %s at 0x%x (%s)"%(str(ivar_info_name), ivar_addr, ivar_seg.getName()))
+                      doc.setNameAtAddress(ivar_addr, ivar_info_name)
       elif in_interface:
          if cl_line[0] in ["+","-"]:
             sel_cmps = cl_line.strip().split(";")
