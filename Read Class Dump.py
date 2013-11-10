@@ -143,7 +143,7 @@ def process(lines, doc):
                 method_info_name = "{0} ({1}) [{2} {3}]".format(method_scope, method_type, interface_name, method_signature)
                 on_method(method_address, method_info_name)
             else:
-                m = re.match("^@property(?P<attributes>\(.+?\))?.+?(?P<type>[a-zA-Z].*(\*| ))(?P<name>[a-zA-Z].*);(?P<rest>.*)", line)
+                m = re.match("^@property *(?P<attributes>\(.*?\))? *(?P<type>[a-zA-Z].*(\*| ))(?P<name>[a-zA-Z].*);(?P<rest>.*)", line)
                 if m is not None:
                     property_attributes = m.group('attributes')
                     property_type = m.group('type').strip()
