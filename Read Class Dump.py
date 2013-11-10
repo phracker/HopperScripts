@@ -152,7 +152,7 @@ def process(lines, doc):
 
                     m = re.match(".*G=(?P<getter>0[xX][0-9a-fA-F]+).*", rest)
                     if m is not None:
-                        property_getter_address = m.group('getter')
+                        property_getter_address = int(m.group('getter'), 16)
 
                         m = re.match(".*getter=(?P<name>[a-zA-Z][a-zA-Z0-9]*).*", property_attributes)
                         if m is not None:
@@ -165,7 +165,7 @@ def process(lines, doc):
 
                     m = re.match(".*S=(?P<setter>0[xX][0-9a-fA-F]+).*", rest)
                     if m is not None:
-                        property_setter_address = m.group('setter')
+                        property_setter_address = int(m.group('setter'), 16)
 
                         m = re.match(".*setter=(?P<name>[a-zA-Z][a-zA-Z0-9]*).*", property_attributes)
                         if m is not None:
