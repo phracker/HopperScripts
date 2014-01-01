@@ -1,3 +1,7 @@
+#
+# Written by Moloch
+# v0.1
+#
 ### Opcodes
 nop_opcodes = {
     1: 0x90, # 1 i386
@@ -15,7 +19,7 @@ def overwrite_instruction(adr):
     instr = seg.getInstructionAtAddress(adr)
     arch = instr.getArchitecture()
     if arch not in nop_opcodes:
-        doc.log("Error: CPU Architecture '%s' not supported" % arch_name)
+        doc.log("Error: CPU Architecture not supported")
     else:
         arch_name = Instruction.stringForArchitecture(instr.getArchitecture())
         doc.log("--- Inserting %s opcodes ---" % arch_name)
@@ -33,15 +37,15 @@ resp = doc.message("What do you want to NOP?", [
     " Cancel "
 ])
 if resp == 0:
-    doc.log("--- Inserting %s opcodes ---" % arch_name)
     overwrite_instruction(adr)
 elif resp == 1:
     user_adr = Document.ask("Enter alternate address:")
-    if user_adr.startswith("0x"):
-        user_adr = user_adr[2:]
-    user_adr = int(user_adr, 16)
-    doc.log("New address is: 0x%08x" % user_adr)
-    if user_adr is not None and user_adr != Segment.BAD_ADDRESS:
-        overwrite_instruction(user_adr)
-    else:
-        doc.log("Error: Bad Address %s" % user_adr)
+    if user_adr is not None:
+        if user_adr.startswith("0x"):
+            user_adr = user_adr[2:]
+        user_adr = int(user_adr, 16)
+        doc.log("New address is: 0x%08x" % user_adr)
+        if user_adr is not None and user_adr != Segment.BAD_ADDRESS:
+            overwrite_instruction(user_adr)
+        else:
+            doc.log("Error: Bad Address %s" % user_adr)
