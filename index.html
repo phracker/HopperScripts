@@ -3,67 +3,83 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <meta name="viewport" content="width=640" />
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
     <title>HopperScripts by phracker</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>HopperScripts</h1>
-        <h2>Python Scripts for use with Hopper Disassembler</h2>
-        <a href="https://github.com/phracker/HopperScripts" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
+    <a id="forkme_banner" href="https://github.com/phracker/HopperScripts">View on GitHub</a>
+    <div class="shell">
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h2>HopperScripts</h2>
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>HopperScripts</h1>
+            <h2>Python Scripts for use with Hopper Disassembler</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
 
-<p>The script stash for Hopper Disassembler.  Contribute a script today!</p>
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/phracker/HopperScripts/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/phracker/HopperScripts/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
 
-<h3>To Install:</h3>
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <p>The script stash for <a href="http://hopperapp.com">Hopper Disassembler</a> by <a href="http://www.cryptic-apps.com">Cryptic Apps</a>.  <a href="https://github.com/phracker/HopperScripts/compare/">Contribute a script</a> today!</p>
+
+<h3>
+<a name="to-install" class="anchor" href="#to-install"><span class="octicon octicon-link"></span></a>To Install:</h3>
 
 <pre><code>$ git clone https://github.com/phracker/HopperScripts ~/Library/Application\ Support/Hopper/Scripts/HopperScripts
 </code></pre>
 
+<h3>
+<a name="reference-material" class="anchor" href="#reference-material"><span class="octicon octicon-link"></span></a>Reference Material</h3>
+
 <p>Check out the <a href="https://github.com/phracker/HopperScripts/wiki/Hopper-Script-Reference">Hopper Scripting Reference</a> if you're new to scripting for Hopper.</p>
 
-<p>Credits:</p>
+<h3>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits:</h3>
 
-<ul>
-<li>Check <a href="https://github.com/phracker/HopperScripts">https://github.com/phracker/HopperScripts</a> for the latest credits.</li>
-</ul>
-        </section>
+<p>Check our <a href="https://github.com/phracker/HopperScripts">GitHub Repo</a> for the latest credits.</p>
+      </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/phracker/HopperScripts/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/phracker/HopperScripts/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/phracker">phracker</a> can be found on <a href="https://github.com/phracker/HopperScripts">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
 
-          <p class="repo-owner"><a href="https://github.com/phracker/HopperScripts"></a> is maintained by <a href="https://github.com/phracker">phracker</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
     </div>
 
-            <script type="text/javascript">
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
