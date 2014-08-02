@@ -1,5 +1,5 @@
 ######### Return True #########
-bytes = [0xB8,0x01,0x00,0x00,0x00,0xC3]
+bytes = [0x31,0xC0,0xFF,0xC0,0xC3]
 doc = Document.getCurrentDocument()
 seg = doc.getCurrentSegment()
 adr = doc.getCurrentAddress()
