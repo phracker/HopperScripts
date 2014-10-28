@@ -62,6 +62,14 @@ class HopperProtocol(protocol.Protocol):
             out = "%s-file-exec-file \"%s\"\n"%(command_no,self.override_file)
       except:
          pass
+      try:
+         command = data.split()
+         if 'interpreter-exec' in command[0] and command[1] == 'console-quoted':
+             # XXX console-quoted doesn't work
+             command[1] = 'console'
+             out = ' '.join(command) + '\n'
+      except:
+         pass
       if VERBOSE and out != data: print "MODIFIED",repr(out)
       return out
    def dataReceived(self, data):
