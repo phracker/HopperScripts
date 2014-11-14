@@ -1,5 +1,7 @@
-**HopperScripts**
+**HopperScripts** <img src="https://i.imgur.com/0K0YKsg.png" alt="HopperScripts">
 ===
+
+
 The script stash for Hopper Disassembler.  Contribute a script today!
 
 To Install:
