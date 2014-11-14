@@ -1,6 +1,8 @@
-<img src="https://i.imgur.com/0K0YKsg.png" alt="HopperScripts"> **HopperScripts**
+<p align="center">
+<img src="https://i.imgur.com/vrfisoB.png" alt="HopperScripts">
+</p>
+**HopperScripts**
 ===
-
 
 The script stash for Hopper Disassembler.  Contribute a script today!
 
