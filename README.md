@@ -2,6 +2,15 @@ HopperScripts
 ---
 The script stash for Hopper Disassembler.  Contribute a script today!
 
+### Links
+
+https://github.com/hexploitable/hopperScripts
+
+https://github.com/agatti/hopper-plugins
+
+https://github.com/BobuSumisu/HopperScripts
+
+
 ### To Install:
 ```
 $ git clone https://github.com/phracker/HopperScripts ~/Library/Application\ Support/Hopper/Scripts/HopperScripts
