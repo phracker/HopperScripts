@@ -2,7 +2,7 @@
 # Add a comment at every XREF to a string (from the __cstring segment).
 # This only seems to be necessary on ARM.
 #
-# Samuel Groß <dev@samuel-gross.de> - github.com/saelo
+# Samuel Gross <dev@samuel-gross.de> - github.com/saelo
 #
 
 def readString(addr):

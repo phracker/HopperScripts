@@ -1,7 +1,7 @@
 #
 # Turn the current selection into an ASCII string.
 #
-# Samuel Groß <dev@samuel-gross.de> - github.com/saelo
+# Samuel Gross <dev@samuel-gross.de> - github.com/saelo
 #
 
 doc = Document.getCurrentDocument()
