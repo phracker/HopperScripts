@@ -10,7 +10,7 @@ def is_valid_ascii(byte):
 def is_null(byte):
   return byte == 0x00
 
-MIN_LEN = 4
+MIN_LEN = 8
 
 num_strings = 0
 start_string = 0
@@ -21,9 +21,14 @@ for seg_id in range(0, doc.getSegmentCount()):
 
   seg_start = seg.getStartingAddress()
   seg_stop = seg_start + seg.getLength()
+  seg_len = seg.getLength()
 
+  i = 0
   for adr in range(seg_start, seg_stop):
     val = seg.readByte(adr)
+    i += 1
+    if (i % 10000 == 0):
+        doc.log("%.1f%% " % (i * 100.0 / seg_len) )
 
     if is_valid_ascii(val):
       string_len += 1
