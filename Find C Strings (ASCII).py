@@ -49,3 +49,4 @@ for seg_id in range(0, doc.getSegmentCount()):
 
 elapsed = (time.clock() - start_time)
 doc.log("Found and marked " + str(num_strings) + " strings in " + str(elapsed) + " seconds.")
+doc.refreshView()

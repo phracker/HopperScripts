@@ -36,3 +36,5 @@ while addr < last:
         continue
 
     addr += 2
+
+doc.refreshView()
