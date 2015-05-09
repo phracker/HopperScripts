@@ -1,4 +1,9 @@
-# imports document labels and comments from a file
+# vim: tabstop=4:softtabstop=4:shiftwidth=4:noexpandtab:
+
+# Copyright: (c)2015 Chris Kuethe <chris.kuethe+github@gmail.com>
+# License: Perl Artistic <http://dev.perl.org/licenses/artistic.html>
+# Description: imports address labels and comments from a JSON file
+
 import json
 
 doc = Document.getCurrentDocument()
@@ -25,6 +30,5 @@ if infile is not None:
 				seg.setInlineCommentameAtAddress(addr, a['icom'])
 		except Exception:
 			pass
-
-doc.log("loaded annotations from %s" % infile)
+	doc.log("loaded annotations from %s" % infile)
 doc.refreshView()
