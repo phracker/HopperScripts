@@ -18,7 +18,7 @@ if infile is not None:
 	for addr in symtab.keys():
 		try:
 			a = symtab[addr]
-			addr = int(addr, 16)
+			addr = int(addr)
 			if ((a['seg'] != tseg) or (seg is None)):
 				tseg = a['seg']
 				seg = doc.getSegment(a['seg'])
