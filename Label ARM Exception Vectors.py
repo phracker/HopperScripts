@@ -1,3 +1,9 @@
+# vim: tabstop=4:softtabstop=4:shiftwidth=4:noexpandtab:
+
+# Copyright: (c)2015 Chris Kuethe <chris.kuethe+github@gmail.com>
+# License: Perl Artistic <http://dev.perl.org/licenses/artistic.html>
+# Description: label the ARM exception vectors and their targets
+
 import struct
 
 vectors = {	0x00: 'RESET',
