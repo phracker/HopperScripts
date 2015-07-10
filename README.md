@@ -8,11 +8,10 @@ The script stash for Hopper Disassembler.  Contribute a script today!
 
 To Install:
 ---
-OS X One Liner:
-```
-$ git clone https://github.com/phracker/HopperScripts ~/Library/Application\ Support/Hopper/Scripts/HopperScripts && mv ~/Library/Application\ Support/Hopper/Scripts/HopperScripts/* ~/Library/Application\ Support/Hopper/Scripts/ && rm -rf ~/Library/Application\ Support/Hopper/Scripts/HopperScripts
-```
-Manual Install / Other Platforms: [Download](https://github.com/phracker/HopperScripts/archive/master.zip), unzip to Hopper's scripts folder.
+
+OS X: `$ curl -sL http://git.io/vqHHE | bash`
+
+Manual Install / Other Platforms: [Download](https://github.com/phracker/HopperScripts/archive/master.zip), unzip to Hopper's Scripts folder.
 
 Check out the [Hopper Scripting Reference](https://github.com/phracker/HopperScripts/wiki/Hopper-Script-Reference) if you're new to scripting for Hopper.
 

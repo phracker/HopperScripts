@@ -8,7 +8,7 @@ doc.log("Disassemble instruction at " + hex(adr))
 
 instr = seg.getInstructionAtAddress(adr)
 
-doc.log("Architecture: %s" % instruction.stringForArchitecture(instr.getArchitecture()))
+doc.log("Architecture: %s" % Instruction.stringForArchitecture(instr.getArchitecture()))
 doc.log("instruction: " + instr.getInstructionString())
 doc.log("instruction length: %d" % instr.getInstructionLength())
 
