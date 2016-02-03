@@ -11,7 +11,7 @@ ENDIANNESS = "<" # Little endian = <, Big endian = >
 def read_data(segment, addr, dlen):
     if segment is None:
         segment = doc.getSegmentAtAddress(addr)
-    return "".join([chr(segment.readByte(addr+x)) for x in range(0,dlen)])
+    return "".join(chr(segment.readByte(addr+x)) for x in range(0,dlen))
 
 # first, find the CFString segment
 doc = Document.getCurrentDocument()
