@@ -32,9 +32,7 @@ if not cfstring_seg:
     raise Exception("No CFString segment found")
 
 # Run though CFStrings
-ptr_size = 4
-if doc.is64Bits():
-    ptr_size = 8
+ptr_size = 8 if doc.is64Bits() else 4
 for addr in xrange(cfstring_range.getStartingAddress(), cfstring_range.getStartingAddress()+cfstring_range.getLength(), ptr_size*4):
     if doc.is64Bits():
         cstr_ptr, = struct.unpack(ENDIANNESS+"Q", read_data(cfstring_seg, addr + ptr_size*2, ptr_size))
