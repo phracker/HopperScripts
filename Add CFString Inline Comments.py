@@ -20,7 +20,14 @@ for seg_idx in range(0,doc.getSegmentCount()):
     cur_seg = doc.getSegment(seg_idx)
     if cur_seg.getName() == "__cfstring":
         cfstring_seg = cur_seg
+        cfstring_range = cur_seg
         break
+    elif cur_seg.getName() == "__DATA":
+        for section in cur_seg.getSectionsList():
+            if section.getName() == "__cfstring":
+                cfstring_seg = cur_seg
+                cfstring_range = section
+                break
 if not cfstring_seg:
     raise Exception("No CFString segment found")
 
@@ -28,7 +35,7 @@ if not cfstring_seg:
 ptr_size = 4
 if doc.is64Bits():
     ptr_size = 8
-for addr in xrange(cfstring_seg.getStartingAddress(), cfstring_seg.getStartingAddress()+cfstring_seg.getLength(), ptr_size*4):
+for addr in xrange(cfstring_range.getStartingAddress(), cfstring_range.getStartingAddress()+cfstring_range.getLength(), ptr_size*4):
     if doc.is64Bits():
         cstr_ptr, = struct.unpack(ENDIANNESS+"Q", read_data(cfstring_seg, addr + ptr_size*2, ptr_size))
     else:
