@@ -33,15 +33,9 @@ if not cfstring_seg:
 
 # Run though CFStrings
 ptr_size = 8 if doc.is64Bits() else 4
+struct_typechar = "Q" if doc.is64Bits() else "I"
 for addr in xrange(cfstring_range.getStartingAddress(), cfstring_range.getStartingAddress()+cfstring_range.getLength(), ptr_size*4):
-    if doc.is64Bits():
-        cstr_ptr, = struct.unpack(ENDIANNESS+"Q", read_data(cfstring_seg, addr + ptr_size*2, ptr_size))
-    else:
-        cstr_ptr, = struct.unpack(ENDIANNESS+"I", read_data(cfstring_seg, addr + ptr_size*2, ptr_size))
-    if doc.is64Bits():
-        cstr_len, = struct.unpack(ENDIANNESS+"Q", read_data(cfstring_seg, addr + ptr_size*3, ptr_size))
-    else:
-        cstr_len, = struct.unpack(ENDIANNESS+"I", read_data(cfstring_seg, addr + ptr_size*3, ptr_size))
+    cstr_ptr, cstr_len = struct.unpack(ENDIANNESS + struct_typechar * 2, read_data(cfstring_seg, addr + ptr_size * 2, ptr_size * 2))
 
     for xref in cfstring_seg.getReferencesOfAddress(addr):
         xref_seg = doc.getSegmentAtAddress(xref)
