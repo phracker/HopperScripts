@@ -9,7 +9,7 @@ ENDIANNESS = "<" # Little endian = <, Big endian = >
 
 # helper methods
 def read_data(segment, addr, dlen):
-    if segment == None:
+    if segment is None:
         segment = doc.getSegmentAtAddress(addr)
     return "".join([chr(segment.readByte(addr+x)) for x in range(0,dlen)])
 
@@ -48,7 +48,7 @@ for addr in xrange(cfstring_range.getStartingAddress(), cfstring_range.getStarti
     for xref in cfstring_seg.getReferencesOfAddress(addr):
         xref_seg = doc.getSegmentAtAddress(xref)
         existing_inline_comment = xref_seg.getInlineCommentAtAddress(xref)
-        if existing_inline_comment == None or existing_inline_comment.startswith("0x"):
+        if existing_inline_comment is None or existing_inline_comment.startswith("0x"):
             cstr_data = str(read_data(None, cstr_ptr, cstr_len))
             doc.log("Set inline comment at 0x%x: %s"%(xref, repr(cstr_data)))
             xref_seg.setInlineCommentAtAddress(xref, "@" + repr(cstr_data))
