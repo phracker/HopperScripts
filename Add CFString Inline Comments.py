@@ -2,7 +2,7 @@
 # This is only really needed on ARM.  It seems to happen already on x64
 # bradenthomas@me.com
 
-import struct,sys
+import struct
 
 # configuration parameters, adjust as needed:
 ENDIANNESS = "<" # Little endian = <, Big endian = >
